@@ -1,17 +1,14 @@
-//Generate web server
-var express = require('express');
-var app = express();
-var path = require('path');
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var mysql = require('mysql');
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'comment'
-});
-connection.connect();
+//Create web server
+const express = require('express');
+const app = express();
+const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// Define the route
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+});
